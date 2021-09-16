@@ -267,10 +267,12 @@ def get_result(num, tim=0):
 
             sta = ""
             sta2=""
-            
+            time_1_struct = datetime.datetime.strptime(set["last_init_time"], "%Y-%m-%d %H:%M:%S.%f")
+            time_2_struct = datetime.datetime.strptime(str(datetime.datetime.now()), "%Y-%m-%d %H:%M:%S.%f")
+            seconds2 = (time_2_struct - time_1_struct).seconds
             sta +=  "\n\nSubmit Time : \n" + str(
                 submitTime
-            ) + "\n\nWait Time : " + str(tim) + " s\n\nScore : " + str(
+            ) + "\n\nWait Time : " + str(tim) + " s\n\nSpend Time : "+ str(round(seconds2/60,2)) +" mins\n\nScore : " + str(
                 score) + "\nFull Score : " + str(
                     fullScore) + "\n\nEnable O2 : " + str(
                         enableO2) + "\n\nRanking : " + str(ranking) + "\n\n"
